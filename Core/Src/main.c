@@ -310,9 +310,9 @@ void process_degree_command(uint8_t *cmd, uint16_t len) {
       // Apply offset (relative to startup position)
       uint32_t actual_position_wide = (uint32_t)position + (uint32_t)position_offset;
 
-      // Clamp to servo range (0-1024)
-      if (actual_position_wide > 1024) {
-        actual_position_wide = 1024;
+      // Clamp to servo range (0-1023)
+      if (actual_position_wide > 1023) {
+        actual_position_wide = 1023;
       }
       uint16_t actual_position = (uint16_t)actual_position_wide;
 
@@ -335,8 +335,8 @@ void process_degree_command(uint8_t *cmd, uint16_t len) {
       if (relative_pos < 0) {
         relative_pos = 0;
       }
-      if (relative_pos > 1024) {
-        relative_pos = 1024;
+      if (relative_pos > 1023) {
+        relative_pos = 1023;
       }
 
       // Response: [STATUS] [POS_HIGH] [POS_LOW]

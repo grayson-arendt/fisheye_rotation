@@ -6,14 +6,14 @@ CMD_SET_POSITION = 0x01
 CMD_READ_POSITION = 0x02
 
 def degrees_to_position(degrees):
-    """Convert degrees (0-300) to servo position (0-1024)"""
+    """Convert degrees (0-300) to servo position (0-1023)"""
     if degrees > 300:
         degrees = 300
-    return int((degrees * 1024) / 300)
+    return int((degrees * 1023) / 300)
 
 def position_to_degrees(position):
-    """Convert servo position (0-1024) to degrees (0-300)"""
-    return int((position * 300) / 1024)
+    """Convert servo position (0-1023) to degrees (0-300)"""
+    return int((position * 300) / 1023)
 
 def main():
     port = sys.argv[1] if len(sys.argv) > 1 else '/dev/ttyACM0'
